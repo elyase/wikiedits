@@ -1,0 +1,65 @@
+/* CSS declarations go here */
+.epoch {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1.ui.header {
+	font-size: 3rem;
+}
+
+h1 {
+font-size: 2em;
+position: relative;
+bottom: 18px !important;
+}
+
+.header {
+	height: 80px;
+}
+
+.ui.modal>.header {
+	height: inherit;
+}
+
+.ui.feed>.event>.content .summary{
+	font-size: 1.2em;
+}
+.ui.feed>.event>.content .extra.text {
+	max-width: 100%;
+	font-size: 1em;
+	font-style: italic;
+}
+
+.ui.feed>.event>.content .date{
+	font-size: 1em;
+}
+
+.ui.feed>.event>.content .meta{
+	font-size: 1em;
+}
+
+.ui.inverted.black.header {
+	color: #FFF!important;
+}
+
+a#about {
+	position: relative;
+	color: #FFF!important;
+	float: right;
+	right: 20px;
+	bottom: 50px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+img.diagram {
+	display: block;
+	margin-left: 0;
+	margin-right: auto;
+	max-width: 100%;
+}
+
+img.technologies {
+	max-width: 100%;
+}

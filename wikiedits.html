@@ -1,0 +1,108 @@
+<head>
+	<meta charset="UTF-8">
+	<title>Wikiedits</title>
+</head>
+
+<body>
+	<div class="ui inverted black block header centered">
+	<h1>Wikipedia Edits</h1>
+	<a id="about">About</a>
+	</div>
+	<div class="container">
+		<div class="ui page grid">
+			<div class="sixteen wide column">
+				<div class="ui segment">
+					{{#each edits}}
+					{{> edit}}
+					{{/each}}
+				</div>
+			</div>
+			<div class="sixteen wide column">
+				{{> controls}}
+			</div>
+			<div class="center aligned eight wide column">
+				{{> barchart}}
+			</div>
+			<div class="center aligned eight wide column">
+				{{> piechart}}
+			</div>
+		</div>
+	</div>
+
+	<div class="ui modal">
+		<i class="close icon"></i>
+		<div class="header">
+			About Wikiedits
+		</div>
+		<div class="content">
+			<h3>Technologies used:</h3>
+			<div class="ui divider"></div>
+
+			<img class="technologies" src="/logos/technologies.png">
+			<h3>Data sources:</h3>
+			<div class="ui divider"></div>
+
+			<img class="data-sources" src="/logos/data_sources.png">
+			<h3>Data flow:</h3>
+			<div class="ui divider"></div>
+			<img class="diagram" src="/diagram.png" alt="diagram">
+		</div>
+	</div>
+</body>
+
+<template name="controls">
+	<button class="huge ui button green" id="control_btn">
+		<i class="{{icon}} icon"></i>
+		{{text}}
+	</button>
+	<button class="huge ui button green" id="reset">
+		<i class="remove circle icon"></i>
+		Reset
+	</button>
+
+</template>
+
+<!-- <template name="edit">
+	<div class="ui vertical segment">
+		<p>	<strong>{{ip}}</strong> from {{country}}(<i class="famfamfam-flag-{{iso_code}}"></i>) has edited <em><a class="apopup" href="{{url}}" target="_blank" data-html="<h3>{{title}}</h3>{{summary}}">"{{title}}"</a></em>
+		</p>
+		<p class="right aligned"><strong>Topic:</strong>{{topics}}</p>
+	</div>
+</template> -->
+
+<template name="edit">
+	<div class="ui feed">
+		<div class="event">
+			<div class="label">
+				<i class="famfamfam-flag-{{iso_code}}"></i>
+			</div>
+			<div class="content">
+				<div class="date">
+					{{ip}}
+				</div>
+				<div class="summary">
+					Someone from <strong>{{country}}</strong> has edited <em><a class="apopup" href="{{url}}" target="_blank" data-html="<h3>{{title}}</h3>{{summary}}">"{{title}}"</a></em>
+
+				</div>
+				<div class="extra text">
+					{{short_summary}}
+				</div>
+				<div class="meta">
+					<a class="like">
+						<strong>Topic: </strong> {{topics}}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="barchart">
+	<h2>Topics</h2>
+	<div id="barchart" class="epoch the-epoch-chart" style="width: 350px; height: 350px"></div>
+</template>
+
+<template name="piechart">
+	<h2>Countries</h2>
+	<div id="pie" class="epoch the-epoch-chart" style="width: 350px; height: 350px"></div>
+</template>
